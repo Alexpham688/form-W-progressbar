@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Form w/Progress Bar</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <header>
+      <h1>Form w/Progress Bar</h1>
+    </header>
+
+    <form id="container">
+      <ul id="progress-bar">
+        <li class="active item">Account Setup</li>
+        <li class="item">Social Profiles</li>
+        <li class="item">Personal Info</li>
+      </ul>
+      <fieldset>
+        <h2 class="title">Create your account</h2>
+        <h3 class="subtitle">First step</h3>
+        <input type="text" placeholder="Email"/>
+        <input class="password"type="password" placeholder="Password"/>
+        <input class="password"type="password" placeholder="Confirm Password"/>
+        <input id="checkbox"type="checkbox">
+        <p>show password</p>
+        <button type="button" class="next action-button">Next</button>
+      </fieldset>
+
+      <fieldset>
+        <h2 class="title">Social Profiles</h2>
+        <h3 class="subtitle">Your social networks</h3>
+        <input type="text" placeholder="Twitter"/>
+        <input type="text" placeholder="Facebook"/>
+        <input type="text" placeholder="Google Plus"/>
+        <button type="button" class="previous action-button">Previous</button>
+        <button type="button" class="next action-button" value="Next">Next</button>
+      </fieldset>
+
+      <fieldset>
+        <h2 class="title">Personal Info</h2>
+
+        <h3>Your information is necessary</h3>
+        <input type="text" placeholder="First name"/>
+        <input type="text" placeholder="Last name"/>
+        <input type="text" placeholder="Phone"/>
+        <textarea name="address" type="textarea"placeholder="Address"></textarea>
+        <button type="button" class="previous action-button" >Previous</button>
+        <button type="submit" class="submit action-button">Submit</button>
+      </fieldset>
+    </form>
+    <footer>
+      <p>Copyright &copy; All rights reserve by AP.</p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

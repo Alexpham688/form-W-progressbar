@@ -1,0 +1,220 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,900,500,600,700);
+
+$white: #FFF;
+$grey: #333;
+$lt-grey: #DDD;
+$md-grey: #777;
+$black: #000;
+$teal: #00FFFF;
+
+@mixin transition($value) {
+  -webkit-transition: $value;
+     -moz-transition: $value;
+          transition: $value;
+}
+
+@mixin transform($value) {
+  -webkit-transform: $value;
+     -moz-transform: $value;
+          transform: $value;
+}
+html {
+  height: 100%;
+  background:
+  linear-gradient(rgba(59, 60, 63, 0.6), rgba(13, 14, 17, 0.7));
+
+}
+
+body {
+  font-family: "Raleway", verdana, sans-serif;
+  // background: $grey;
+}
+header, footer {
+  margin: 0 auto;
+  width: 600px;
+  height: 50px;
+  border-radius: 1px;
+  border: 1px solid $lt-grey;
+  color: $white;
+  text-align: center;
+  box-shadow:  -2px 3px 4px  rgba(20,20,20, 0.5);
+  h1 {
+    margin: 3px auto;
+    text-shadow: -2px 3px 4px  rgba(20,20,20, 0.5);
+  }
+}
+#container {
+  width: 400px;
+  margin: 50px auto;
+  position: relative;
+
+  fieldset {
+    background: $white;
+    border: 2px solid $white;
+    box-shadow: -1px 5px 8px  rgba(200,200,200, 0.5);
+    padding: 20px 30px;
+    box-sizing: border-box;
+    border-radius: 1px;
+    text-align: center;
+    width: 80%;
+    margin: 0 10%;
+    position: relative;
+    text-shadow: -1px 2px 4px rgba(60,60,60,0.5);
+
+    &:not(:first-of-type) {
+      display: none;
+    }
+  }
+  p {
+    float: left;
+    margin-top: -8px;
+    font-size: .7em;
+    font-family: 'helvetica', sans-serif;
+  }
+
+  input, textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    color: $grey;
+    font-size: .9em;
+
+
+    &[type='text'] {
+      box-shadow: -1px 3px 5px rgba(60,60,60,0.5);
+    }
+    &[type="password"] {
+      box-shadow: -1px 3px 5px rgba(60,60,60,0.5);
+    }
+    &[type="textarea"] {
+      box-shadow: -1px 3px 5px rgba(60,60,60,0.5);
+    }
+    &:focus {
+      color: $lt-grey;
+      background: $black;
+    }
+  }
+  .action-button {
+    width: 100px;
+    background: $grey;
+    color: $white;
+    font-weight: bold;
+    border: 0 none;
+    text-align: center;
+    border-radius: 1px;
+    line-height: 2.7em;
+    font-size: 1.3em;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    padding: 0 5px;
+    margin: 10px 5px;
+    box-shadow: -1px 3px 4px rgba(60,60,60,0.5);
+    @include transition(all 0.3s ease);
+
+    &:after {
+      content: "";
+      position: absolute;
+      height: 100%;
+      left: 50%;
+      right: 50%;
+      border-radius: 1px;
+      background: rgba(300,300,300, 0.15);
+      @include transition(all .3s ease);
+      color: $teal;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      @include transform(translateY(5px));
+      background: inherit;
+      border-radius: 1px;
+      z-index: -99;
+    }
+    &:hover:after {
+      left: 0;
+      right: 0;
+    }
+    &:hover {
+      color: $teal;
+      background: $md-grey;
+      @include transition(all .3s ease);
+    }
+
+  }
+  .title {
+    font-size: 15px;
+    text-transform: uppercase;
+    color: $grey;
+    margin-bottom: 10px;
+  }
+  .subtitle {
+    font-size: .8px;
+    color: $md-grey;
+    margin-bottom: 20px;
+  }
+  #progress-bar {
+    margin-bottom: 20px;
+    margin-right: 20px;
+    overflow: hidden;
+    counter-reset: step;
+    text-align: center;
+
+
+    li {
+      margin-top: 20px;
+      list-style: none;
+      color: $white;
+      text-transform: uppercase;
+      font-size: .8em;
+      width: 33.3%;
+      float: left;
+      position: relative;
+      text-shadow: -1px 3px 4px rgba(20,20,20,0.5);
+
+      &:before {
+        content: counter(step);
+        counter-increment: (step);
+        width: 20px;
+        line-height: 20px;
+        display: block;
+        font-size: .8em;
+        color: $grey;
+        background: $white;
+        border-radius: 3px;
+        margin: 0 auto 5px auto;
+        box-shadow: -1px 3px 4px rgba(20,20,20,0.5);
+
+      }
+      &:after {
+        content: "";
+        width: 100%;
+        height: 3px;
+        background: $white;
+        position: absolute;
+        left: -50%;
+        top: 9px;
+        z-index: -100;
+      }
+
+      &:first-child:after {
+        content: none;
+      }
+      &.active:before, .active:after {
+        background: $md-grey;
+        color: $teal;
+        font-size: 1em;
+        border: 1px solid $teal;
+        @include transform(scale(1.4));
+        @include transition(all .5s ease-in-out);
+      }
+    }
+  }
+}
